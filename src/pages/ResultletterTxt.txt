@@ -1,0 +1,63 @@
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import styled from 'styled-components';
+import Response from './Response';
+import './ResultletterCSS.css';
+import Explore from './Explore';
+// import 'G:/React/ecommerceapp/node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+const Container = styled.div`
+    height: 100%;
+    background-color: #fcf5f5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`;
+
+const Resultletter = (props) => {
+    return (
+        <Container>
+            {/* <InputContainer>
+                <Input placeholder="Enter your medicine Name" />
+                <Button>
+                    <Search />
+                </Button>
+            </InputContainer> */}
+            <div className="retable">
+                <Response desc="Paracetamol" />
+                <div className="resultA">
+                    <table className="relayout" cellSpacing="0" cellPadding="0">
+                        <tr>
+                            <td className="lefttb"><LocalHospitalOutlinedIcon className="sym" /> <span>{props.address}</span></td>
+                            <td className="righttbr"><span className="sym">&#8377; </span><span> Price: 300&#8377;</span></td>
+                        </tr>
+                        <tr>
+                            <td className="lefttb"><LocationOnIcon className="sym" />Near by 36 Mall, flat no. 734</td>
+                            <td className="righttb"><NavigationIcon className="sym" /><a href="https://goo.gl/maps/72u4RDauSFHAr8Uh6">Direction</a></td>
+                        </tr>
+                        <tr>
+                            <td className="lefttb"><AddIcCallIcon className="sym" /> +91-1234567890</td>
+                            <td className="righttb"><MoreHorizIcon className="sym" /><a href="https://www.google.com/">In Stock</a></td>
+                        </tr>
+                    </table>
+                    {/* <div className="btnevent">
+                        <button className="btncart">Expand</button>
+                        <button className="mleft">Call</button>
+                    </div> */}
+                    <Explore/>
+                    {/* <div className='mxheight2'>
+
+                    </div>
+                    <div className='mxheight2'>
+
+                    </div> */}
+                </div>
+            </div>
+        </Container>
+    )
+}
+
+export default Resultletter

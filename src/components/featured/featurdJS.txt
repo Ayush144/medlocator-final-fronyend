@@ -1,0 +1,55 @@
+import React from 'react'
+import './Featured.css'
+import Slider from './Slider';
+
+const Featured = () => {
+    return (
+        <div className='featured'>
+            <h1 className='featured-text'>Top Featured Listings</h1>
+            <p className='featured-text'>Selected listings by City, State, & Zip based on views.</p>
+            <div className='container'>
+                {/* <img className='span-3 image-grid-row-2' src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' /> */}
+                {/* <img className='order-3' src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' /> */}
+                <img src="https://5.imimg.com/data5/YH/JH/LW/SELLER-3468355/levothyroxine-sodium-500x500.jpg" alt='' />
+                <img src="https://www.prescriptiondrugjournal.com/wp-content/uploads/2016/08/Lipitor.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/000591/abzorb-anti-fungal-powder-100-gm-6.2-1637510413.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/207833/calcimax-forte-plus-strip-of-30-tablets-6.1-1637510003.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/T22634/liveasy-wellness-calcium-magnesium-vitamin-d3-bones-dental-health-bottle-of-60-tablets-2-1637565394.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/Y79593/everherb-jointcare-blend-of-9-powerful-herbs-joint-bone-health-bottle-of-60-tablets-2-1637518200.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/Z96268/sandpuppy-heatwrap-multipurpose-electric-heating-wrap-black-for-back-shoulder-elbow-knee-pain-relief-1-1632777017.jpg" alt='' />
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/067825/ensure-vanilla-nutrition-drink-refill-of-400-g-1-1637514902.jpg" alt='' />
+                <img src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' />
+                <img src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' />
+            </div>
+            <div className='quotesmg'>
+                <div className='quotes'>
+                    <p><b>"Physical fitness is the first requisite of happiness."</b></p><br></br>
+                    <p><b>"Health is beauty, and the most perfect health is the most perfect beauty."</b></p>
+                    {/* <button className='btncntr btn'>View Listing</button> */}
+                </div>
+            </div>
+            <br/>
+            <Slider/>
+        {/* Section section */}
+        <div className='quotesmg'>
+            <h1>Best Doctors in Bilaspur for consultancy</h1>
+        </div>
+        <div className='container'>
+                <img className='order-2 consl' src="https://images1-fabric.practo.com/doctor/619309/dr-vijay-kumar-srivas-59e44f2ad6113.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/618562/dr-a-jayavelu-59c3b94489ee4.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/619192/dr-rakesh-pandey-59c3d5c019269.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/619185/dr-partha-pratim-mishra-59c4c29a2319f.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/618744/dr-rajib-lochan-bhanja-59c3d3b26b380.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/618748/dr-rashmi-sharma-59c3ddb5e1f6b.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/618589/dr-indira-mishra-59c4c2ac494f9.jpg" alt='' />
+                <img className='order-3 consl' src="https://images1-fabric.practo.com/doctor/618488/dr-kavita-babbar-59c3aa61bfb8d.jpg" alt='' />
+                {/* <img className='span-3 image-grid-row-2 order-1' src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' /> */}
+                {/* <img className='span-3 image-grid-row-2 order-1' src="https://cdn.pixabay.com/photo/2015/12/06/18/28/capsules-1079838_960_720.jpg" alt='' /> */}
+                <img className='order-4 consl' src="https://images1-fabric.practo.com/doctor/619137/dr-sandhya-chandrakar-59c4c2c95bf83.jpg" alt='' />
+                <img className='order-5 consl' src="https://i.ibb.co/s1LWTpk/1a1decb6-c4bc-4af0-b447-8b340e1742ec.png" alt='' />
+            </div>
+        </div>
+    )
+}
+
+export default Featured
