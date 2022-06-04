@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from "./map";
 import useCollapse from 'react-collapsed';
 import './Explore.css';
 function Collapsible() {
@@ -11,6 +12,7 @@ function Collapsible() {
             <div {...getCollapseProps()}>
                 <div className="content">
                     <div className='mxheight2'>
+                        <Map/>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quis repellat inventore nostrum modi, cumque cum exercitationem numquam, corrupti quia eveniet! Corrupti, quod? Consequatur alias perspiciatis eligendi incidunt modi?
                     </div>
                 </div>

@@ -12,6 +12,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -31,6 +33,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+    const history = useHistory();
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -38,6 +41,40 @@ export default function SignIn() {
             email: data.get('email'),
             password: data.get('password'),
         });
+
+        var object = {};
+        data.forEach(function (value, key) {
+            object[key] = value;
+        });
+        var json = JSON.stringify(object);
+        let jsonObj = JSON.parse(json);
+        let email = jsonObj.email;
+        let password = jsonObj.password;
+        axios.post(`http://localhost:7000/api/user/login`, { email, password })
+            .then(response => {
+                if (response.status === 201) {
+                    alert("login successfull");
+                    console.log(response);
+                   localStorage.setItem("user", JSON.stringify(response.data.user_token.token));
+                    history.push("/home");
+                   
+
+                }
+                else {
+                    alert("Invalid Credentials")
+                }
+
+
+
+
+            }).catch(error => {
+                console.log(error);
+
+                alert("Error!", error, "error");
+            });
+
+            
+
     };
 
     return (
@@ -59,10 +96,10 @@ export default function SignIn() {
                         Sign in
                     </Typography>
                     <Grid item className='asksign'>Medical store owner?
-                <> </><Link href="/storeregister" variant="body2">
-                   Login here
-                </Link>
-              </Grid>
+                        <> </><Link href="/storeregister" variant="body2">
+                            Login here
+                        </Link>
+                    </Grid>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"

@@ -7,6 +7,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import Result from '../../pages/Result'
 
 const home = () => {
+   
     const [clicked] = useState(false);
         const [medicines, setMedicines] = useState([]);
         const [text, setText] = useState('');

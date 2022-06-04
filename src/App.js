@@ -32,21 +32,22 @@ function App() {
     //   <Footer/>
     // </div>
     <>
-    <Router>
-      <Navbar/>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/register" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/result" component={Result} />
-        <Route exact path="/produ" component={ShopApp} />
-        <Route exact path="/storeregister" component={Storeowner} />
-      </Switch>
-      {/* <Cart/> */}
-      <Products/>
-      <Featured/>
-      <Best/>
-      <Footer/>
+      <Router>
+        <Navbar />
+        <Switch>
+        <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/register" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/result" component={Result} />
+          <Route exact path="/produ" component={ShopApp} />
+          <Route exact path="/storeregister" component={Storeowner} />
+        </Switch>
+        {/* <Cart/> 
+        <Products />
+        <Featured />
+        <Best />*/}
+        <Footer />
       </Router>
     </>
   );

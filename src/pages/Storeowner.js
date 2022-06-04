@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './SignUp.css';
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -31,6 +32,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Storeowner() {
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -40,8 +43,8 @@ export default function Storeowner() {
       contact_no: data.get('number'),
 
     });
-  
-   
+
+
     console.log(data)
     var object = {};
     data.forEach(function (value, key) {
@@ -49,31 +52,37 @@ export default function Storeowner() {
     });
     var json = JSON.stringify(object);
     let jsonObj = JSON.parse(json);
-    let email=jsonObj.email;
-    let contact_no=jsonObj.contact_no;
-    let password=jsonObj.password;
-    let storeId=jsonObj.storeId;
-   
-    axios.post(`http://localhost:7000/api/stores`, {email,contact_no,password,storeId})
-    .then(res => {
-      console.log(res);
-      if (res.data.result === "success") {
-        alert("Success!", res.data.message, "success")
-        .then(data => {
-         // history.push("/login");
-         
-        });
-      } else if (res.data.result === "error") {
-        alert("Error!", res.data.message, "error");
-      }
-    })
-    .catch(error => {
-      console.log(error);
-      alert("Error!", "Unexpected error", "error");
-    });
-    
-   
+    let email = jsonObj.email;
+    let contact_no = jsonObj.number;
+    let password = jsonObj.password;
+    let storeId = jsonObj.storeId;
+    let name_of_store = jsonObj.storename;
+
+
+    axios.post(`http://localhost:7000/api/stores`, { email, contact_no, password, storeId, storename })
+      .then(res => {
+        console.log(data);
+        if (res.data.success === true) {
+          alert("Success!", res.text, "success")
+          history.push("/login");
+          alert("Success!", res.text, "success")
+            .then(data => {
+              console.log(data);
+
+            });
+        } else if (res.data.success === false) {
+          alert("Error!", res.data.error, "error");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+
+        alert("Error!", error, "error");
+      });
+
+
   };
+
 
 
   return (
@@ -111,9 +120,9 @@ export default function Storeowner() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
+                  id="storename"
+                  label="Store Name"
+                  name="storename"
                   autoComplete="family-name"
                 />
               </Grid>
@@ -171,9 +180,9 @@ export default function Storeowner() {
                 <TextField
                   required
                   fullWidth
-                  id="mobilenum"
+                  id="number"
                   label="Mobile Number"
-                  name="contact_no"
+                  name="number"
                   autoComplete="mobile number"
                 />
               </Grid>
@@ -205,7 +214,7 @@ export default function Storeowner() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-              <Link href="/mainlogin" variant="body2">
+                <Link href="/mainlogin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
